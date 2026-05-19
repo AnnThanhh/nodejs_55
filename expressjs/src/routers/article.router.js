@@ -48,4 +48,15 @@ articleRouter.get(
 //Create
 articleRouter.post("/", articleController.create);
 
+//Update
+articleRouter.put("/:articleId", articleController.update);
+
+//Delete
+articleRouter.delete("/:articleId", articleController.delete);
+
 export default articleRouter;
+
+//db first
+//tạo ra table mới trên db
+// npx prisma db pull -> cập nhật models từ db
+//npx prisma generate -> cập nhật lại client sau khi đã thay đổi models

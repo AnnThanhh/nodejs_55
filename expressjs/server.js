@@ -1,7 +1,7 @@
 import express from "express";
 import rootRouter from "./src/routers/root.router.js";
 import { appError } from "./src/common/helpers/appError.helper.js";
-
+import cors from "cors";
 const app = express();
 
 //js version cũ: commonjs
@@ -10,6 +10,19 @@ const app = express();
 //js version mới: es module, es6 .mjs
 // import express from "express"
 app.use(express.json()); //middleware để parse body của request có định dạng json
+
+// app.use((req, res, next) => {
+//   console.log(req.headers);
+
+//   //gọi res.setHeader() để thiết lập các header cần thiết cho response, ví dụ như header để cho phép truy cập từ client ở domain khác (CORS)
+//   res.setHeader("access-control-allow-methods", "GET, POST, PUT, DELETE");
+//   res.setHeader("access-control-allow-headers", "content-type");
+//   res.setHeader("access-control-allow-origin", "http://localhost:3000");
+
+//   next();
+// });
+
+app.use(cors({ origin: ["http://localhost:3000", "http://google.com"] })); //middleware để thiết lập CORS, cho phép truy cập từ client ở domain http://localhost:3000
 
 //định nghĩa api
 app.use("/api", rootRouter);
