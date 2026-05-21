@@ -2,48 +2,43 @@
 // import sequelize from "../common/squelize/connect.sequelize.js";
 import Article from "../models/article.model.js";
 import { prisma } from "../common/prisma/connect.prisma.js";
+import { json } from "sequelize";
+import { buildQueryPrismaHelper } from "../common/helpers/build-query-prisma.helper.js";
 
 //body: gửi đoạn json lên server
 //header: user token, accept, method,...
 //params
 
 export const articleService = {
+  //article?page=1&pageSize=3&filters={"id":1}
   async findAll(req) {
     //squelize
     // const res = await Article.findAll();
+    
+    const { page, pageSize, index, where } = buildQueryPrismaHelper(req);
 
-    //xử lý phân trang
-    let { page, pageSize } = req.query;
-    console.log(page, pageSize);
-
-    const pageDefault = 1;
-    const pageSizeDefault = 3;
-
-    //xử lý chuyển về số nguyên
-    page = Number(page) || pageDefault;
-    pageSize = Number(pageSize) || pageSizeDefault;
-
-    //xử lý trường hợp số âm
-    if (page < 1) page = pageDefault;
-    if (pageSize < 1) pageSize = pageSizeDefault;
-
-    //index: vị trí bắt đầu lấy dữ liệu
-    const index = (page - 1) * pageSize;
     //prisma
     //thay vì viết raw sql thì sẽ sử dụng prisma để có thể phân trang
     const res = await prisma.articles.findMany({
-      where: {
-        isDeleted: false,
-      },
+      // where: {
+      //   // content: {
+      //   //   contains: "Nextjs",
+      //   // },
+      //   ...filters, //sử dụng spread operator để gộp các điều kiện filter vào trong điều kiện where
+      //   isDeleted: false,
+      // },
+      where: where,
       skip: index, // tương đương với offset trong sql
       take: pageSize, // tương đương với limit trong sql
     });
-    
+
     //thông qua .count để số tổng và điều kiện chưa bị xóa
     const totalItems = await prisma.articles.count({
-      where: {
-        isDeleted: false,
-      },
+      // where: {
+      //   ...filters,
+      //   isDeleted: false,
+      // },
+      where: where,
     });
     //tính tổng số trang thông qua math.ceil để làm tròn lên ví dụ 3.4 ~ 4 trang
     const totalPages = Math.ceil(totalItems / pageSize);

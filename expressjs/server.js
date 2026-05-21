@@ -14,14 +14,14 @@ app.use(express.json()); //middleware để parse body của request có định
 // app.use((req, res, next) => {
 //   console.log(req.headers);
 
-//   //gọi res.setHeader() để thiết lập các header cần thiết cho response, ví dụ như header để cho phép truy cập từ client ở domain khác (CORS)
+//  gọi res.setHeader() để thiết lập các header cần thiết cho response, ví dụ như header để cho phép truy cập từ client ở domain khác (CORS)
 //   res.setHeader("access-control-allow-methods", "GET, POST, PUT, DELETE");
 //   res.setHeader("access-control-allow-headers", "content-type");
 //   res.setHeader("access-control-allow-origin", "http://localhost:3000");
 
 //   next();
 // });
-
+// app.use(cors({ origin: "*" })); //cho phép truy cập từ mọi domain
 app.use(cors({ origin: ["http://localhost:3000", "http://google.com"] })); //middleware để thiết lập CORS, cho phép truy cập từ client ở domain http://localhost:3000
 
 //định nghĩa api
