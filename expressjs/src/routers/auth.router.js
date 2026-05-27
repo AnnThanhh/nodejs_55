@@ -7,5 +7,7 @@ const authRouter = express.Router();
 authRouter.post("/login", authController.login);
 // http://localhost:3069/api/auth/register
 authRouter.post("/register", authController.register);
+// http://localhost:3069/api/auth/forgot-password
+authRouter.post("/forgot-password", authController.forgotPassword);
 
 export default authRouter;

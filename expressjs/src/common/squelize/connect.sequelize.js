@@ -7,7 +7,7 @@ import { Sequelize } from "sequelize";
 //example.com - host: địa chỉ máy chủ của database (localhost || ip tới database)
 //port: cổng kết nối đến database (3306)
 //dbname: tên database
-const sequelize = new Sequelize("mysql://root:12345@localhost:3306/nodejs55");
+const sequelize = new Sequelize("mysql://myuser:mypassword@localhost:3306/mydb");
 
 //code test từ web sequelize để kiểm tra kết nối đến database
 try {

@@ -93,12 +93,13 @@ model Users {
   age              Int?
   totpSecret       String?            @db.VarChar(255)
   googleId         String?            @db.VarChar(255)
+  password         String?            @db.VarChar(255)
   deletedBy        Int                @default(0)
   isDeleted        Boolean            @default(false)
   deletedAt        DateTime?          @db.Timestamp(0)
   createdAt        DateTime           @default(now()) @db.Timestamp(0)
   updatedAt        DateTime           @default(now()) @db.Timestamp(0)
-  password         String?            @db.VarChar(255)
+  codeChangePass   String?            @db.VarChar(255)
   Articles         Articles[]
   ChatGroupMembers ChatGroupMembers[]
   ChatGroups       ChatGroups[]

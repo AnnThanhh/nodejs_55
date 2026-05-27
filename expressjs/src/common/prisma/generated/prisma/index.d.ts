@@ -6632,12 +6632,13 @@ export namespace Prisma {
     age: number | null
     totpSecret: string | null
     googleId: string | null
+    password: string | null
     deletedBy: number | null
     isDeleted: boolean | null
     deletedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
-    password: string | null
+    codeChangePass: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
@@ -6648,12 +6649,13 @@ export namespace Prisma {
     age: number | null
     totpSecret: string | null
     googleId: string | null
+    password: string | null
     deletedBy: number | null
     isDeleted: boolean | null
     deletedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
-    password: string | null
+    codeChangePass: string | null
   }
 
   export type UsersCountAggregateOutputType = {
@@ -6664,12 +6666,13 @@ export namespace Prisma {
     age: number
     totpSecret: number
     googleId: number
+    password: number
     deletedBy: number
     isDeleted: number
     deletedAt: number
     createdAt: number
     updatedAt: number
-    password: number
+    codeChangePass: number
     _all: number
   }
 
@@ -6694,12 +6697,13 @@ export namespace Prisma {
     age?: true
     totpSecret?: true
     googleId?: true
+    password?: true
     deletedBy?: true
     isDeleted?: true
     deletedAt?: true
     createdAt?: true
     updatedAt?: true
-    password?: true
+    codeChangePass?: true
   }
 
   export type UsersMaxAggregateInputType = {
@@ -6710,12 +6714,13 @@ export namespace Prisma {
     age?: true
     totpSecret?: true
     googleId?: true
+    password?: true
     deletedBy?: true
     isDeleted?: true
     deletedAt?: true
     createdAt?: true
     updatedAt?: true
-    password?: true
+    codeChangePass?: true
   }
 
   export type UsersCountAggregateInputType = {
@@ -6726,12 +6731,13 @@ export namespace Prisma {
     age?: true
     totpSecret?: true
     googleId?: true
+    password?: true
     deletedBy?: true
     isDeleted?: true
     deletedAt?: true
     createdAt?: true
     updatedAt?: true
-    password?: true
+    codeChangePass?: true
     _all?: true
   }
 
@@ -6829,12 +6835,13 @@ export namespace Prisma {
     age: number | null
     totpSecret: string | null
     googleId: string | null
+    password: string | null
     deletedBy: number
     isDeleted: boolean
     deletedAt: Date | null
     createdAt: Date
     updatedAt: Date
-    password: string | null
+    codeChangePass: string | null
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
     _sum: UsersSumAggregateOutputType | null
@@ -6864,12 +6871,13 @@ export namespace Prisma {
     age?: boolean
     totpSecret?: boolean
     googleId?: boolean
+    password?: boolean
     deletedBy?: boolean
     isDeleted?: boolean
     deletedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    password?: boolean
+    codeChangePass?: boolean
     Articles?: boolean | Users$ArticlesArgs<ExtArgs>
     ChatGroupMembers?: boolean | Users$ChatGroupMembersArgs<ExtArgs>
     ChatGroups?: boolean | Users$ChatGroupsArgs<ExtArgs>
@@ -6887,15 +6895,16 @@ export namespace Prisma {
     age?: boolean
     totpSecret?: boolean
     googleId?: boolean
+    password?: boolean
     deletedBy?: boolean
     isDeleted?: boolean
     deletedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    password?: boolean
+    codeChangePass?: boolean
   }
 
-  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "fullName" | "avatar" | "age" | "totpSecret" | "googleId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "password", ExtArgs["result"]["users"]>
+  export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "fullName" | "avatar" | "age" | "totpSecret" | "googleId" | "password" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "codeChangePass", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Articles?: boolean | Users$ArticlesArgs<ExtArgs>
     ChatGroupMembers?: boolean | Users$ChatGroupMembersArgs<ExtArgs>
@@ -6920,12 +6929,13 @@ export namespace Prisma {
       age: number | null
       totpSecret: string | null
       googleId: string | null
+      password: string | null
       deletedBy: number
       isDeleted: boolean
       deletedAt: Date | null
       createdAt: Date
       updatedAt: Date
-      password: string | null
+      codeChangePass: string | null
     }, ExtArgs["result"]["users"]>
     composites: {}
   }
@@ -7306,12 +7316,13 @@ export namespace Prisma {
     readonly age: FieldRef<"Users", 'Int'>
     readonly totpSecret: FieldRef<"Users", 'String'>
     readonly googleId: FieldRef<"Users", 'String'>
+    readonly password: FieldRef<"Users", 'String'>
     readonly deletedBy: FieldRef<"Users", 'Int'>
     readonly isDeleted: FieldRef<"Users", 'Boolean'>
     readonly deletedAt: FieldRef<"Users", 'DateTime'>
     readonly createdAt: FieldRef<"Users", 'DateTime'>
     readonly updatedAt: FieldRef<"Users", 'DateTime'>
-    readonly password: FieldRef<"Users", 'String'>
+    readonly codeChangePass: FieldRef<"Users", 'String'>
   }
     
 
@@ -7870,12 +7881,13 @@ export namespace Prisma {
     age: 'age',
     totpSecret: 'totpSecret',
     googleId: 'googleId',
+    password: 'password',
     deletedBy: 'deletedBy',
     isDeleted: 'isDeleted',
     deletedAt: 'deletedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    password: 'password'
+    codeChangePass: 'codeChangePass'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -7934,7 +7946,8 @@ export namespace Prisma {
     avatar: 'avatar',
     totpSecret: 'totpSecret',
     googleId: 'googleId',
-    password: 'password'
+    password: 'password',
+    codeChangePass: 'codeChangePass'
   };
 
   export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]
@@ -8387,12 +8400,13 @@ export namespace Prisma {
     age?: IntNullableFilter<"Users"> | number | null
     totpSecret?: StringNullableFilter<"Users"> | string | null
     googleId?: StringNullableFilter<"Users"> | string | null
+    password?: StringNullableFilter<"Users"> | string | null
     deletedBy?: IntFilter<"Users"> | number
     isDeleted?: BoolFilter<"Users"> | boolean
     deletedAt?: DateTimeNullableFilter<"Users"> | Date | string | null
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
-    password?: StringNullableFilter<"Users"> | string | null
+    codeChangePass?: StringNullableFilter<"Users"> | string | null
     Articles?: ArticlesListRelationFilter
     ChatGroupMembers?: ChatGroupMembersListRelationFilter
     ChatGroups?: ChatGroupsListRelationFilter
@@ -8407,12 +8421,13 @@ export namespace Prisma {
     age?: SortOrderInput | SortOrder
     totpSecret?: SortOrderInput | SortOrder
     googleId?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
     deletedBy?: SortOrder
     isDeleted?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    password?: SortOrderInput | SortOrder
+    codeChangePass?: SortOrderInput | SortOrder
     Articles?: ArticlesOrderByRelationAggregateInput
     ChatGroupMembers?: ChatGroupMembersOrderByRelationAggregateInput
     ChatGroups?: ChatGroupsOrderByRelationAggregateInput
@@ -8431,12 +8446,13 @@ export namespace Prisma {
     age?: IntNullableFilter<"Users"> | number | null
     totpSecret?: StringNullableFilter<"Users"> | string | null
     googleId?: StringNullableFilter<"Users"> | string | null
+    password?: StringNullableFilter<"Users"> | string | null
     deletedBy?: IntFilter<"Users"> | number
     isDeleted?: BoolFilter<"Users"> | boolean
     deletedAt?: DateTimeNullableFilter<"Users"> | Date | string | null
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
-    password?: StringNullableFilter<"Users"> | string | null
+    codeChangePass?: StringNullableFilter<"Users"> | string | null
     Articles?: ArticlesListRelationFilter
     ChatGroupMembers?: ChatGroupMembersListRelationFilter
     ChatGroups?: ChatGroupsListRelationFilter
@@ -8451,12 +8467,13 @@ export namespace Prisma {
     age?: SortOrderInput | SortOrder
     totpSecret?: SortOrderInput | SortOrder
     googleId?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
     deletedBy?: SortOrder
     isDeleted?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    password?: SortOrderInput | SortOrder
+    codeChangePass?: SortOrderInput | SortOrder
     _count?: UsersCountOrderByAggregateInput
     _avg?: UsersAvgOrderByAggregateInput
     _max?: UsersMaxOrderByAggregateInput
@@ -8475,12 +8492,13 @@ export namespace Prisma {
     age?: IntNullableWithAggregatesFilter<"Users"> | number | null
     totpSecret?: StringNullableWithAggregatesFilter<"Users"> | string | null
     googleId?: StringNullableWithAggregatesFilter<"Users"> | string | null
+    password?: StringNullableWithAggregatesFilter<"Users"> | string | null
     deletedBy?: IntWithAggregatesFilter<"Users"> | number
     isDeleted?: BoolWithAggregatesFilter<"Users"> | boolean
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Users"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Users"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Users"> | Date | string
-    password?: StringNullableWithAggregatesFilter<"Users"> | string | null
+    codeChangePass?: StringNullableWithAggregatesFilter<"Users"> | string | null
   }
 
   export type ArticlesCreateInput = {
@@ -8890,12 +8908,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsCreateNestedManyWithoutUsersInput
@@ -8910,12 +8929,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesUncheckedCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersUncheckedCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsUncheckedCreateNestedManyWithoutUsersInput
@@ -8929,12 +8949,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUpdateManyWithoutUsersNestedInput
@@ -8949,12 +8970,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUncheckedUpdateManyWithoutUsersNestedInput
@@ -8969,12 +8991,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
   }
 
   export type UsersUpdateManyMutationInput = {
@@ -8984,12 +9007,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsersUncheckedUpdateManyInput = {
@@ -9000,12 +9024,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -9507,12 +9532,13 @@ export namespace Prisma {
     age?: SortOrder
     totpSecret?: SortOrder
     googleId?: SortOrder
+    password?: SortOrder
     deletedBy?: SortOrder
     isDeleted?: SortOrder
     deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    password?: SortOrder
+    codeChangePass?: SortOrder
   }
 
   export type UsersAvgOrderByAggregateInput = {
@@ -9529,12 +9555,13 @@ export namespace Prisma {
     age?: SortOrder
     totpSecret?: SortOrder
     googleId?: SortOrder
+    password?: SortOrder
     deletedBy?: SortOrder
     isDeleted?: SortOrder
     deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    password?: SortOrder
+    codeChangePass?: SortOrder
   }
 
   export type UsersMinOrderByAggregateInput = {
@@ -9545,12 +9572,13 @@ export namespace Prisma {
     age?: SortOrder
     totpSecret?: SortOrder
     googleId?: SortOrder
+    password?: SortOrder
     deletedBy?: SortOrder
     isDeleted?: SortOrder
     deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    password?: SortOrder
+    codeChangePass?: SortOrder
   }
 
   export type UsersSumOrderByAggregateInput = {
@@ -10173,12 +10201,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     ChatGroupMembers?: ChatGroupMembersCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesCreateNestedManyWithoutUsersInput
@@ -10192,12 +10221,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     ChatGroupMembers?: ChatGroupMembersUncheckedCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsUncheckedCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesUncheckedCreateNestedManyWithoutUsersInput
@@ -10226,12 +10256,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     ChatGroupMembers?: ChatGroupMembersUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUpdateManyWithoutUsersNestedInput
@@ -10245,12 +10276,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     ChatGroupMembers?: ChatGroupMembersUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUncheckedUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUncheckedUpdateManyWithoutUsersNestedInput
@@ -10263,12 +10295,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesCreateNestedManyWithoutUsersInput
@@ -10282,12 +10315,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesUncheckedCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsUncheckedCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesUncheckedCreateNestedManyWithoutUsersInput
@@ -10344,12 +10378,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUpdateManyWithoutUsersNestedInput
@@ -10363,12 +10398,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUncheckedUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUncheckedUpdateManyWithoutUsersNestedInput
@@ -10444,12 +10480,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesCreateNestedManyWithoutUsersInput
@@ -10463,12 +10500,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesUncheckedCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersUncheckedCreateNestedManyWithoutUsersInput
     ChatMessages?: ChatMessagesUncheckedCreateNestedManyWithoutUsersInput
@@ -10558,12 +10596,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUpdateManyWithoutUsersNestedInput
@@ -10577,12 +10616,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUncheckedUpdateManyWithoutUsersNestedInput
     ChatMessages?: ChatMessagesUncheckedUpdateManyWithoutUsersNestedInput
@@ -10654,12 +10694,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsCreateNestedManyWithoutUsersInput
@@ -10673,12 +10714,13 @@ export namespace Prisma {
     age?: number | null
     totpSecret?: string | null
     googleId?: string | null
+    password?: string | null
     deletedBy?: number
     isDeleted?: boolean
     deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    password?: string | null
+    codeChangePass?: string | null
     Articles?: ArticlesUncheckedCreateNestedManyWithoutUsersInput
     ChatGroupMembers?: ChatGroupMembersUncheckedCreateNestedManyWithoutUsersInput
     ChatGroups?: ChatGroupsUncheckedCreateNestedManyWithoutUsersInput
@@ -10741,12 +10783,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUpdateManyWithoutUsersNestedInput
@@ -10760,12 +10803,13 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     totpSecret?: NullableStringFieldUpdateOperationsInput | string | null
     googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     deletedBy?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    password?: NullableStringFieldUpdateOperationsInput | string | null
+    codeChangePass?: NullableStringFieldUpdateOperationsInput | string | null
     Articles?: ArticlesUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroupMembers?: ChatGroupMembersUncheckedUpdateManyWithoutUsersNestedInput
     ChatGroups?: ChatGroupsUncheckedUpdateManyWithoutUsersNestedInput

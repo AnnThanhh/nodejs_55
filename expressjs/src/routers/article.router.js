@@ -2,6 +2,8 @@ import express from "express";
 import { articleController } from "../controllers/article.controller.js";
 import { responseErr } from "../common/helpers/response.helper.js";
 import { BadRequestError } from "../common/helpers/exception.helper.js";
+import { authMiddleware } from "../common/middleware/auth.middleware.js";
+import { testMiddleware } from "../common/middleware/test.middleware.js";
 const articleRouter = express.Router();
 
 //req, res: sẽ sử dụng chung vùng nhớ, nên có thể truyền dữ liệu qua lại giữa các middleware thông qua req hoặc res
@@ -10,13 +12,8 @@ const articleRouter = express.Router();
 //Read
 articleRouter.get(
   "/",
-  (req, res, next) => {
-    console.log("middleware 1");
-    // xử lý logic -> A
-    const resultA = "Kết quả A";
-    res.payload = resultA; // gán kết quả A vào res.payload để truyền cho middleware tiếp theo sử dụng
-    next(); // gọi next để tiếp tục chạy middleware tiếp theo, nếu không có sẽ bị treo ở middleware hiện tại
-  },
+  authMiddleware,
+  testMiddleware,
   (req, res, next) => {
     console.log("middleware 2");
     // có thể lấy được kết quả A từ middleware trước đó thông qua res.payload
@@ -46,7 +43,7 @@ articleRouter.get(
 );
 
 //Create
-articleRouter.post("/", articleController.create);
+articleRouter.post("/", authMiddleware, articleController.create);
 
 //Update
 articleRouter.put("/:articleId", articleController.update);
