@@ -12,7 +12,15 @@ const adapter = new PrismaMariaDb({
   database: url.pathname.substring(1),
   connectionLimit: 5,
 });
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient({
+  adapter,
+  omit: {
+    users: {
+      password: true,
+      codeChangePass: true,
+    },
+  },
+});
 
 try {
   await prisma.$queryRaw`SELECT 1+1 AS result`;

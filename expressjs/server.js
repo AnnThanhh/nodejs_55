@@ -2,6 +2,8 @@ import express from "express";
 import rootRouter from "./src/routers/root.router.js";
 import { appError } from "./src/common/helpers/appError.helper.js";
 import cors from "cors";
+import { logAPI } from "./src/common/middleware/log-api.middleware.js";
+import cookieParser from "cookie-parser";
 const app = express();
 
 //js version cũ: commonjs
@@ -24,6 +26,9 @@ app.use(express.json()); //middleware để parse body của request có định
 // app.use(cors({ origin: "*" })); //cho phép truy cập từ mọi domain
 app.use(cors({ origin: ["http://localhost:3000", "http://google.com"] })); //middleware để thiết lập CORS, cho phép truy cập từ client ở domain http://localhost:3000
 
+app.use(cookieParser()); //middleware để parse cookie từ request
+
+app.use(logAPI);
 //định nghĩa api
 app.use("/api", rootRouter);
 
