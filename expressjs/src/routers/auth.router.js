@@ -2,6 +2,7 @@ import express from "express";
 import { authController } from "../controllers/auth.controller.js";
 import { authMiddleware } from "../common/middleware/auth.middleware.js";
 import { protectMiddleware } from "../common/middleware/protect.middleware.js";
+import { authCookie } from "../common/middleware/authCookie.middleware.js";
 const authRouter = express.Router();
 
 // Tạo route CRUD
@@ -12,12 +13,8 @@ authRouter.post("/register", authController.register);
 // http://localhost:3069/api/auth/forgot-password
 authRouter.post("/forgot-password", authController.forgotPassword);
 
-authRouter.get("/get-info", authMiddleware, authController.getInfo);
+authRouter.get("/get-info", authCookie, authController.getInfo);
 
-authRouter.post(
-  "/refresh-token",
-  protectMiddleware,
-  authController.refreshToken,
-);
+authRouter.post("/refresh-token", authController.refreshToken);
 
 export default authRouter;

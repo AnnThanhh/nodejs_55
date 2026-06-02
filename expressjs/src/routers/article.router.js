@@ -4,6 +4,7 @@ import { responseErr } from "../common/helpers/response.helper.js";
 import { BadRequestError } from "../common/helpers/exception.helper.js";
 import { authMiddleware } from "../common/middleware/auth.middleware.js";
 import { testMiddleware } from "../common/middleware/test.middleware.js";
+import { authCookie } from "../common/middleware/authCookie.middleware.js";
 const articleRouter = express.Router();
 
 //req, res: sẽ sử dụng chung vùng nhớ, nên có thể truyền dữ liệu qua lại giữa các middleware thông qua req hoặc res
@@ -12,7 +13,7 @@ const articleRouter = express.Router();
 //Read
 articleRouter.get(
   "/",
-  authMiddleware,
+  authCookie,
   testMiddleware,
   (req, res, next) => {
     console.log("middleware 2");
@@ -43,7 +44,7 @@ articleRouter.get(
 );
 
 //Create
-articleRouter.post("/", authMiddleware, articleController.create);
+articleRouter.post("/", authCookie, articleController.create);
 
 //Update
 articleRouter.put("/:articleId", articleController.update);

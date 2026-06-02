@@ -1,3 +1,4 @@
+import { UnauthorizedError } from "../helpers/exception.helper.js";
 import { verifyAccessToken } from "../helpers/jwt.helper.js";
 
 export const protectMiddleware = (req, res, next) => {

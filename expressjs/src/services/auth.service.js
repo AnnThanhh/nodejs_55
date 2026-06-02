@@ -131,7 +131,7 @@ export const authService = {
 
   async refreshToken(req) {
     const { refreshToken } = req.cookies;
-    const accessToken = req.accessToken;
+    const accessToken = req.accessToken || req.cookies.accessToken;
 
     if (!refreshToken) {
       throw new BadRequestError(

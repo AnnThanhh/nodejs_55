@@ -14,6 +14,7 @@ export const authController = {
     const { accessToken, refreshToken } = await authService.login(req);
     // lưu refresh token vào cookie
     res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS);
+    res.cookie("accessToken", accessToken, COOKIE_OPTIONS);
     const response = responseSuccess(
       {
         accessToken,
@@ -52,6 +53,7 @@ export const authController = {
     const { accessToken, refreshToken } = await authService.refreshToken(req);
     // lưu refresh token vào cookie
     res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS);
+    res.cookie("accessToken", accessToken, COOKIE_OPTIONS);
     const response = responseSuccess(
       {
         accessToken,
