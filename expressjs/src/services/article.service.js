@@ -14,7 +14,7 @@ export const articleService = {
   async findAll(req) {
     //squelize
     // const res = await Article.findAll();
-    
+
     const { page, pageSize, index, where } = buildQueryPrismaHelper(req);
 
     //prisma

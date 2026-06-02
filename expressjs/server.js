@@ -4,6 +4,7 @@ import { appError } from "./src/common/helpers/appError.helper.js";
 import cors from "cors";
 import { logAPI } from "./src/common/middleware/log-api.middleware.js";
 import cookieParser from "cookie-parser";
+import { initLoginGooglePassport } from "./src/common/passport/login-google.passport.js";
 const app = express();
 
 //js version cũ: commonjs
@@ -29,6 +30,8 @@ app.use(cors({ origin: ["http://localhost:3000", "http://google.com"] })); //mid
 app.use(cookieParser()); //middleware để parse cookie từ request
 
 app.use(logAPI);
+
+initLoginGooglePassport(); //khởi tạo passport login google
 //định nghĩa api
 app.use("/api", rootRouter);
 

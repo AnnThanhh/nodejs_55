@@ -63,4 +63,12 @@ export const authController = {
     );
     res.status(response.statusCode).json(response);
   },
+
+  async googleCallback(req, res, next) {
+    const { accessToken, refreshToken } = req.user;
+    res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS);
+    res.cookie("accessToken", accessToken, COOKIE_OPTIONS);
+
+    res.redirect("http://localhost:3000/login-callback");
+  },
 };
