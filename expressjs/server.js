@@ -5,6 +5,9 @@ import cors from "cors";
 import { logAPI } from "./src/common/middleware/log-api.middleware.js";
 import cookieParser from "cookie-parser";
 import { initLoginGooglePassport } from "./src/common/passport/login-google.passport.js";
+import swaggerUi from "swagger-ui-express";
+import { swaggerDocument } from "./src/common/swagger/init.swagger.js";
+
 const app = express();
 
 //js version cũ: commonjs
@@ -32,6 +35,13 @@ app.use(cookieParser()); //middleware để parse cookie từ request
 app.use(logAPI);
 
 initLoginGooglePassport(); //khởi tạo passport login google
+
+//middleware dùng để public thư mục, cho phép client truy cập trực tiếp vào thư mục cho phép để lấy ảnh
+app.use(express.static("public"));
+
+//swagger
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 //định nghĩa api
 app.use("/api", rootRouter);
 
