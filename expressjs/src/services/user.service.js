@@ -3,8 +3,45 @@ import { BadRequestError } from "../common/helpers/exception.helper.js";
 import { prisma } from "../common/prisma/connect.prisma.js";
 import fs from "fs";
 import { v2 as cloudinary } from "cloudinary";
+import { buildQueryPrismaHelper } from "../common/helpers/build-query-prisma.helper.js";
 
 export const userService = {
+  async findAll(req) {
+    const { page, pageSize, index, where } = buildQueryPrismaHelper(req);
+
+    const res = await prisma.users.findMany({
+      where: where,
+      skip: index,
+      take: pageSize,
+    });
+
+    const totalItems = await prisma.users.count({
+      where: where,
+    });
+
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+      items: res,
+      totalItems: totalItems,
+      totalPages: totalPages,
+      page: page,
+      pageSize: pageSize,
+    };
+  },
+
+  async findOne(req) {
+    const { id } = req.params;
+
+    const user = await prisma.users.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return user;
+  },
+
   async avatarLocal(req) {
     //req.file là thông tin file được gửi thông qua key có type là file
     //req.body là thông tin gửi lên server thông qua key có type là text

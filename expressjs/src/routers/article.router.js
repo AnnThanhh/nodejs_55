@@ -46,6 +46,9 @@ articleRouter.get(
 //Create
 articleRouter.post("/", authCookie, articleController.create);
 
+//Find one
+articleRouter.get("/:id", articleController.findOne);
+
 //Update
 articleRouter.put("/:articleId", articleController.update);
 

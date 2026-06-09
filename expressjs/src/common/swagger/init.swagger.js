@@ -1,3 +1,7 @@
+import { articleSwagger } from "./article.swagger.js";
+import { authSwagger } from "./auth.swagger.js";
+import { userSwagger } from "./user.swagger.js";
+
 export const swaggerDocument = {
   openapi: "3.0.4",
   info: {
@@ -6,6 +10,21 @@ export const swaggerDocument = {
       "Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.",
     version: "0.1.1",
   },
+  //dành cho dự án có authen từ header
+  // components: {
+  //   securitySchemes: {
+  //     bearerAuth: {
+  //       type: "http",
+  //       scheme: "bearer",
+  //       bearerFormat: "JWT",
+  //     },
+  //   },
+  // },
+  // security: [
+  //   {
+  //     bearerAuth: [],
+  //   },
+  // ],
   servers: [
     {
       url: "http://localhost:3069/api",
@@ -23,21 +42,8 @@ export const swaggerDocument = {
     },
   ],
   paths: {
-    "/article": {
-      get: {
-        tags: ["Article"],
-        //cho biết đây là api để làm gì
-        summary: "Returns a list of articles.",
-        description: "Optional extended description in CommonMark or HTML.",
-        responses: {
-          200: {
-            description: "A JSON array of article titles",
-          },
-          400: {
-            description: "Bad request",
-          },
-        },
-      },
-    },
+    ...articleSwagger,
+    ...authSwagger,
+    ...userSwagger,
   },
 };

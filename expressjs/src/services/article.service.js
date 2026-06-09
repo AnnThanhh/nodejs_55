@@ -52,6 +52,18 @@ export const articleService = {
     };
   },
 
+  async findOne(req) {
+    const { id } = req.params;
+
+    const article = await prisma.articles.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return article;
+  },
+
   async create(req) {
     const body = req.body;
 

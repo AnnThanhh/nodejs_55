@@ -12,6 +12,15 @@ export const articleController = {
     res.json(response); // trả về cho client dưới dạng json
   },
 
+  async findOne(req, res, next) {
+    const articles = await articleService.findOne(req);
+    const response = responseSuccess(
+      articles,
+      "Lấy chi tiết Article thành công",
+    );
+    res.json(response); // trả về cho client dưới dạng json
+  },
+
   async create(req, res, next) {
     const articles = await articleService.create(req);
     const response = responseSuccess(articles, "Tạo Article thành công");

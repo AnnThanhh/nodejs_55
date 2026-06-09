@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import { initLoginGooglePassport } from "./src/common/passport/login-google.passport.js";
 import swaggerUi from "swagger-ui-express";
 import { swaggerDocument } from "./src/common/swagger/init.swagger.js";
+import { initSocket } from "./src/common/socket/init.socket.js";
 
 const app = express();
 
@@ -47,11 +48,16 @@ app.use("/api", rootRouter);
 
 app.use(appError);
 
+const httpServer = initSocket(app);
+
 const PORT = 3069;
-app.listen(PORT, () => {
+const server = httpServer.listen(PORT, () => {
   //sau khi server chạy, sẽ tiếp tục thực các logic code bên trong callback
   console.log(`server online at port: ${PORT}`);
 });
+server.requestTimeout = 0; //tắt timeout mặc định của server, để server không tự động ngắt kết nối khi có request nào đó xử lý lâu hơn thời gian timeout mặc định (30s)
+
+//server node trên mỗi server đã set up time out mặc định là 30s, nếu sau 30s mà server chưa trả về response thì server sẽ tự động ngắt kết nối, client sẽ nhận được lỗi timeout
 
 //express < 5: controller bắt buộc bọc try catch để xử lý lỗi, nếu không sẽ bị treo server khi có lỗi xảy ra
 
