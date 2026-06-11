@@ -17,7 +17,7 @@ import {
 
 export const signAccessToken = (payload) => {
   // console.log("JWT_SECRET_KEY:", JWT_SECRET_KEY)
-  return jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "15s" });
+  return jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "3h" });
 };
 
 export const verifyAccessToken = (token, options) => {

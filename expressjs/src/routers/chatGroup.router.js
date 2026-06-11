@@ -1,0 +1,12 @@
+import express from "express";
+import { chatGroupController } from "../controllers/chatGroup.controller.js";
+
+const chatGroupRouter = express.Router();
+
+// Tạo route CRUD
+chatGroupRouter.get("/", chatGroupController.findAll);
+chatGroupRouter.get("/:id", chatGroupController.findOne);
+chatGroupRouter.patch("/:id", chatGroupController.update);
+chatGroupRouter.delete("/:id", chatGroupController.remove);
+
+export default chatGroupRouter;
