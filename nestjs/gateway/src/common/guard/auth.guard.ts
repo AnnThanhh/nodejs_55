@@ -53,7 +53,6 @@ export class AuthGuard implements CanActivate {
 
       req.user = userExits;
 
-      console.log('ProjectGuard', { cookies: req.cookies });
       return true;
     } catch (err: any) {
       switch (err.constructor) {

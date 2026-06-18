@@ -7,6 +7,7 @@ import { PrismaService } from 'src/module-system/prisma/prisma.service';
 @Injectable()
 export class ArticleService {
   constructor(private prisma: PrismaService) {}
+
   create(createArticleDto: CreateArticleDto) {
     return 'This action adds a new article';
   }
@@ -18,6 +19,9 @@ export class ArticleService {
       where: where,
       skip: index, // tương đương với offset trong sql
       take: pageSize, // tương đương với limit trong sql
+      include: {
+        Users: true,
+      },
     });
 
     const totalItems = await this.prisma.articles.count({
