@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import {
   JWT_REFRESH_SECRET_KEY,
   JWT_SECRET_KEY,
-} from 'src/common/app.constant';
+} from 'src/common/constants/app.constant';
 import jwt from 'jsonwebtoken';
 @Injectable()
 export class TokenService {

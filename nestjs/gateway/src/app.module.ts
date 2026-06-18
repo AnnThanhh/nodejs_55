@@ -5,7 +5,7 @@ import { AuthModule } from './module-api/auth/auth.module.js';
 import { PrismaModule } from './module-system/prisma/prisma.module.js';
 import { TokenModule } from './module-system/token/token.module.js';
 import { APP_GUARD } from '@nestjs/core';
-import { AuthGuard } from './common/auth.guard';
+import { AuthGuard } from './common/guard/auth.guard';
 
 @Module({
   imports: [AuthModule, PrismaModule, TokenModule],
