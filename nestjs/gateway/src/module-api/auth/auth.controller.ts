@@ -1,8 +1,10 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { AuthService } from './auth.service.js';
 import { LoginDTO } from './DTO/login.dto.js';
 import type { Response } from 'express';
 import { Public } from 'src/common/decorators/public.decorator';
+import { User } from 'src/common/decorators/user.decorator';
+import { Role } from 'src/common/decorators/role.decorator';
 
 @Controller('auth') //định nghĩa route gốc cho controller này là /auth
 export class AuthController {
@@ -10,6 +12,7 @@ export class AuthController {
 
   @Post('login') // định nghĩa route và phương thức cho method
   @Public() // đánh dấu route này là public, không cần xác thực
+  @Role('USER')
   async login(
     @Body()
     body: LoginDTO,
@@ -25,5 +28,12 @@ export class AuthController {
 
     return true;
     // return result;
+  }
+
+  @Role('USER')
+  @Get('get-info')
+  getInfo(@User() user) {
+    // console.log('req.user', user);
+    return user;
   }
 }
