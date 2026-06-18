@@ -12,7 +12,7 @@ export class AuthService {
   ) {}
 
   async login(body: LoginDTO) {
-    console.log({ body });
+    // console.log({ body });
     const { email, password } = body;
     // console.log(email, password);
     //kiểm tra email xem có tồn tại không
