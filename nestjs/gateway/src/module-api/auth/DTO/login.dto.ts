@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 // DTO (Data Transfer Object) để định nghĩa cấu trúc dữ liệu của request body
 export class LoginDTO {
@@ -8,4 +8,8 @@ export class LoginDTO {
 
   @IsNotEmpty({ message: 'Password không được để trống' })
   password: string;
+
+  @IsOptional()
+  @IsString()
+  token?: string; // token 2FA (nếu có)
 }

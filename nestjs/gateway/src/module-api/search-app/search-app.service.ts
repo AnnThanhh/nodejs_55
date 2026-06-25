@@ -15,9 +15,28 @@ export class SearchAppService {
     this.initFood();
   }
 
-  searchApp(text: string) {
+  async searchApp(text: string) {
     console.log(`Searching for: ${text}`);
-    return 'search-app';
+    const result = await this.elasticsearchService.search({
+      index: ['articles', 'users', 'foods'],
+      query: {
+        multi_match: {
+          query: text,
+          fields: [
+            'title',
+            'content',
+            'email',
+            'fullName',
+            'name',
+            'description',
+          ],
+          operator: 'OR', //chỉ cần khớp 1 phần từ khóa, (tìm kiếm mềm)
+          fuzziness: 'AUTO', //tìm kiếm gần đúng, (user gõ thiếu chữ/ sai chính tả)
+          minimum_should_match: '60%', //tối thiểu 60% từ khóa phải khớp
+        },
+      },
+    });
+    return result;
   }
 
   async initArticles() {

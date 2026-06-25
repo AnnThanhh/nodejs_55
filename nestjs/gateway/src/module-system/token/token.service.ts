@@ -34,12 +34,16 @@ export class TokenService {
     return refreshToken;
   }
 
-  verifyAccessToken(acccessToken) {
-    const decode = jwt.verify(acccessToken, JWT_SECRET_KEY as string);
+  verifyAccessToken(acccessToken, option?: jwt.VerifyOptions) {
+    const decode = jwt.verify(acccessToken, JWT_SECRET_KEY as string, option);
     return decode;
   }
-  verifyRefreshToken(refreshToken) {
-    const decode = jwt.verify(refreshToken, JWT_REFRESH_SECRET_KEY as string);
+  verifyRefreshToken(refreshToken, option?: jwt.VerifyOptions) {
+    const decode = jwt.verify(
+      refreshToken,
+      JWT_REFRESH_SECRET_KEY as string,
+      option,
+    );
     return decode;
   }
 }

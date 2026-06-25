@@ -18,6 +18,7 @@ import type { Cache } from 'cache-manager';
 import { ElasticSearchModule } from './module-system/elastic-search/elastic-search.module';
 import { ElasticsearchService } from '@nestjs/elasticsearch/dist/elasticsearch.service';
 import { SearchAppModule } from './module-api/search-app/search-app.module';
+import { TotpModule } from './module-api/totp/totp.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { SearchAppModule } from './module-api/search-app/search-app.module';
     }),
     ElasticSearchModule,
     SearchAppModule,
+    TotpModule,
   ],
   controllers: [AppController],
   providers: [
