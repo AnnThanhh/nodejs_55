@@ -2,6 +2,8 @@ import 'dotenv/config';
 //FILE CHỨA HẰNG SỐ DÙNG CHUNG LẤY TỪ .ENV
 export const DATABASE_URL = process.env.DATABASE_URL;
 
+export const PORT = process.env.PORT;
+
 export const REDIS_URL = process.env.REDIS_URL;
 
 export const JWT_SECRET_KEY = process.env.JWT_SECRET;
@@ -22,6 +24,7 @@ console.log(
   '\n',
   {
     DATABASE_URL: DATABASE_URL,
+    PORT: PORT,
     REDIS_URL: REDIS_URL,
     ACCESS_TOKEN_SECRET: JWT_SECRET_KEY,
     REFRESH_TOKEN_SECRET: JWT_REFRESH_SECRET_KEY,

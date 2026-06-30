@@ -19,6 +19,8 @@ import { ElasticSearchModule } from './module-system/elastic-search/elastic-sear
 import { ElasticsearchService } from '@nestjs/elasticsearch/dist/elasticsearch.service';
 import { SearchAppModule } from './module-api/search-app/search-app.module';
 import { TotpModule } from './module-api/totp/totp.module';
+import { OrderModule } from './module-api/order/order.module';
+import { RabbitMqModule } from './module-system/rabbit-mq/rabbit-mq.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { TotpModule } from './module-api/totp/totp.module';
     ElasticSearchModule,
     SearchAppModule,
     TotpModule,
+    OrderModule,
+    RabbitMqModule,
   ],
   controllers: [AppController],
   providers: [
