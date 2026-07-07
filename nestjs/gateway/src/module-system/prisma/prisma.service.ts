@@ -15,6 +15,21 @@ export class PrismaService extends PrismaClient {
       host: url.hostname,
       port: Number(url.port),
       database: url.pathname.substring(1),
+      allowPublicKeyRetrieval: true,
+      // logger: {
+      //   network: (info) => {
+      //     console.log('PrismaAdapterNetwork', info);
+      //   },
+      //   query: (info) => {
+      //     console.log('PrismaAdapterQuery', info);
+      //   },
+      //   error: (error) => {
+      //     console.error('PrismaAdapterError', error);
+      //   },
+      //   warning: (info) => {
+      //     console.warn('PrismaAdapterWarning', info);
+      //   },
+      // },
     });
     super({ adapter });
   }
