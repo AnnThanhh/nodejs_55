@@ -29,22 +29,34 @@ services:
       - 15672:15672
       - 5672:5672
     environment:
-      - RABBITMQ_DEFAULT_USER=user
-      - RABBITMQ_DEFAULT_PASS=password
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
 
   #docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:latest
   database:
     container_name: nodejs55-dc
     image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: 12345
+    environment: 
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
       - 3306:3306
 
   gateway:
     container_name: con-gateway-dc
-    image: img-gateway
+    image: tathanh26/img-gateway:latest
     ports:
       - 3070:3069
+    env_file:
+      - .env
+
+  order:
+    container_name: con-order-dc
+    image: tathanh26/img-order:latest
+    env_file:
+      - .env
+
+  email:
+    container_name: con-email-dc
+    image: tathanh26/img-email:latest
     env_file:
       - .env
